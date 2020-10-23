@@ -8,7 +8,6 @@ from skimage.util import random_noise, invert
 import tensorflow as tf
 import tensorflow.contrib.legacy_seq2seq as seq2seq
 import math
-import sklearn.model_selection as sk
 import cv2
 from scipy import ndimage
 import copy, re
