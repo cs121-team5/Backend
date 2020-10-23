@@ -9,6 +9,7 @@ import tensorflow.contrib.legacy_seq2seq as seq2seq
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # load the learner
 mean_train = np.load("train_images_mean.npy")
