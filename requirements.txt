@@ -1,0 +1,6 @@
+Flask
+gunicorn
+tensorflow==1.12
+OpenCV-Python==3.4.0.12
+flask-cors
+scikit-image
