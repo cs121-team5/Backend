@@ -23,7 +23,7 @@ def predict_single(img_file):
     formula = cv2.imread(img_file, 0)
     ##formula = cv2.cvtColor(formula, cv2.COLOR_BGR2GRAY)
     latex = model.predict(formula)
-    return {'equation': latex['formula']}
+    return {'equation': latex['equation']}
 #     prediction = learn.predict(open_image(img_file))
 #     probs_list = prediction[2].numpy()
 #     return {
