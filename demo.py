@@ -20,10 +20,13 @@ model = Latex("model", mean_train, std_train, plotting=False)
 
 def predict_single(img_file):
     'function to take image and return prediction'
-    formula = io.imread(img_file)
     try:
+    	formula = io.imread(img_file)
 	    formula = cv2.cvtColor(formula, cv2.COLOR_BGR2GRAY)
-	finally:
+    	latex = model.predict(formula)
+    	return {'equation': latex['equation']}
+	except:
+		formula = io.imread(img_file)
     	latex = model.predict(formula)
     	return {'equation': latex['equation']}
 #     prediction = learn.predict(open_image(img_file))
