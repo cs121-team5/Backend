@@ -27,8 +27,8 @@ def predict_single(img_file):
 		return {'equation': latex['equation']}
 	except:
 		formula = io.imread(img_file)
-    	latex = model.predict(formula)
-    	return {'equation': latex['equation']}
+		latex = model.predict(formula)
+		return {'equation': latex['equation']}
 #     prediction = learn.predict(open_image(img_file))
 #     probs_list = prediction[2].numpy()
 #     return {
