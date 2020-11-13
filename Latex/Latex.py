@@ -343,7 +343,7 @@ class Latex(object):
         
         seq = self.seqModel.predict_single(self.seq_sess, seq_data[:26])
 
-        return {'equation': seq, 'seq_data': seq_data, 'formula': self.post_process_latex(formula_text), 'output_image': bb_image, 'data': good_bounding_boxes}
+        return {'equation': seq, 'seq_data': seq_data, 'formula': self.post_process_latex(formula_text), 'output_image': bb_image, 'data': good_bounding_boxes, 'warning': False}
     
     def post_process_latex(self, formula_text):
         formula_text = formula_text.replace("=", " = ")
