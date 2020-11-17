@@ -293,6 +293,7 @@ class Latex(object):
             self.pred_pos.append(bounding_box)
         
     def predict(self, formula):
+        warning = False;         
         self.formula = formula
         self.get_bounding_boxes()
         self.normalize()
@@ -313,10 +314,12 @@ class Latex(object):
 
         lastYmin = None
         lastYmax = None
-        for pred_result,pos in zip(pred_results,pred_pos):              
+        for pred_result,pos in zip(pred_results,pred_pos):     
             symbol_no = pred_result['classes']
             symbol = self.label_names[symbol_no]
             acc = pred_result['probabilities'][symbol_no]
+            if (acc < 0.5):
+                warning = True
             if self.verbose:
                 print("Recognized a %s with %.2f %% accuracy" % (symbol,acc*100))
             
@@ -343,7 +346,7 @@ class Latex(object):
         
         seq = self.seqModel.predict_single(self.seq_sess, seq_data[:26])
 
-        return {'equation': seq, 'seq_data': seq_data, 'formula': self.post_process_latex(formula_text), 'output_image': bb_image, 'data': good_bounding_boxes, 'warning': False}
+        return {'equation': seq, 'seq_data': seq_data, 'formula': self.post_process_latex(formula_text), 'output_image': bb_image, 'data': good_bounding_boxes, 'warning': warning}
     
     def post_process_latex(self, formula_text):
         formula_text = formula_text.replace("=", " = ")
