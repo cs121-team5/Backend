@@ -16,10 +16,10 @@ class Seq2SeqModel(object):
         embed_size = 20
         x_seq_length = 26
         self.y_seq_length = 25
-        nxchars = 30
+        nxchars = 86
 
-        self.ltokens = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '=', '#leq', '#neq', '#geq', '#alpha',
-                            '#beta', '#lambda', '#lt', '#gt', 'x', 'y', '^', '#frac', '{', '}' ,' ']
+        self.ltokens = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '=', '#leq', '#neq', '#geq', '#alpha', '#beta', '#lambda', '#lt', '#gt', 'x', 'y', '^', '#frac', '{', '}', ' ', 'f', '(', ')', '#sum', '_', 'n', '#infty', 'a', 'i', 'F', 'j', 'k', 'z', '#sqrt', 'e', 'b', 'c', 'd', '#pm', '#times', '#slash', 'r', '#sin', '#theta', '#cos', '#phi', 'u', ',', 'p', 't', '.', '#pi', '#int', '#{', 'g', '#}', '#ldots', 'o', 'q', '[', ']', 'P', '#vert', '#cdots', 'h', 'm', 'M', 'N', 'S', 'G', 'X', '#gamma', 'v', 'H', 'l', 'Y', '#lim', '#rightarrow', 'V', '#cdot', 'T', 'E', '#div', 'I', 'R', '#sigma', '#limits', '!', 'L', 's', '#log', '#tan', "'", 'A', 'B', 'C', '#Delta', 'w', '#prime', '#mu', '#in', '#forall', ' ']
+
 
         # Tensor where we will feed the data into graph
         inputs = tf.placeholder(tf.float32, (None, x_seq_length, nxchars), 'inputs')
